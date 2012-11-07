@@ -60,10 +60,9 @@ cp arch/arm/configs/${DEVICE}_defconfig .config;
 make ARCH=arm CROSS_COMPILE=$TOOLCHAIN oldconfig;
 
 # Compile Kernel
-# 2> warn.log means exporting the warning to a file called warn.log
 echo -e "";
 echo -e "${bldblu} Compiling Kernel for ${DEVICE} ${txtrst}";
-make ARCH=arm CROSS_COMPILE=$TOOLCHAIN 2> warn.log;
+make -j$THREADS ARCH=arm CROSS_COMPILE=$TOOLCHAIN 2> warn.log;
 
 # Change Kernel to .elf format
 echo -e ""
