@@ -800,20 +800,6 @@ out:
 	return rc;
 }
 
-
-static void __init scpll_init(int pll, unsigned int max_l_val)
-
-#ifdef CONFIG_PERFLOCK
-unsigned int get_max_cpu_freq(void)
-{
-	struct clkctl_acpu_speed *f;
-	for (f = acpu_freq_tbl; f->acpuclk_khz != 0; f++)
-		;
-	f--;
-	return f->acpuclk_khz;;
-}
-#endif
-
 #ifdef CONFIG_CPU_VOLTAGE_TABLE
 
 ssize_t acpuclk_get_vdd_levels_str(char *buf) {
@@ -859,7 +845,7 @@ void acpuclk_set_vdd(unsigned int khz, int vdd_uv) {
 }
 #endif	/* CONFIG_CPU_VOTALGE_TABLE */
 
-static void __init scpll_init(int sc_pll)
+static void __init scpll_init(int pll, unsigned int max_l_val)
 {
 	uint32_t regval;
 
