@@ -1,0 +1,4 @@
+Configuration files can be found in arch/arm/configs.
+
+LT29i => blue_hayabusa_defconfig
+LT30p => blue_mint_defconfig
