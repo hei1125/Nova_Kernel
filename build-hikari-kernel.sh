@@ -1,13 +1,18 @@
 #!/bin/bash
 
-# CM10 Hikari Kernel Compiler
-# Date: 16/12/2012
+# CM10 Hikari (Sony Xperia Acro S) Kernel Compiler
+# Date: 22/12/2012
 # By Hei1125
 
-# Variables
-working_dir=/home/hei/android;
+##### Variables #####
+# Path of your Kernel Directory
 kernel_dir=/home/hei/android/NOVA-Kernel;
+# Path of your toolchain
 toolchain=/home/hei/android/toolchains/arm-eabi-4.4.3/bin/arm-eabi-;
+# Path of Shared folder of the virtual box
+sharedfolder=/media/sf_Desktop;
+# Name of flashable zip
+flashable_zip=NovaKernel-Hikari.zip;
 
 # Enable ccache
 export USE_CCACHE=1;
@@ -15,14 +20,15 @@ export USE_CCACHE=1;
 # Go to Kernel Folder
 cd $kernel_dir;
 
-# Config Hikari (Sony Xperia Acro S) Non-OC Kernel
+# Kernel Configuration
 cp arch/arm/configs/hikari_defconfig .config;
 make ARCH=arm CROSS_COMPILE=$toolchain oldconfig;
 
-# Build Kernel
+# Compile Kernel
+# 2> warn.log means exporting the warning to a file called warn.log
 make ARCH=arm CROSS_COMPILE=$toolchain -j`grep 'processor' /proc/cpuinfo | wc -l` 2> warn.log;
 
-# Change to elf format
+# Change Kernel to elf format
 cp arch/arm/boot/zImage kernel-build/hikari;
 cd kernel-build/hikari;
 mv zImage 0;
@@ -34,12 +40,12 @@ cp kernel-build/hikari/kernel.elf zip-format;
 rm -f kernel-build/hikari/kernel.elf;
 rm -f kernel-build/hikari/0;
 cd zip-format;
-zip -r NovaKernel-Hikari-Non-OC.zip ./META-INF kernel.elf;
+zip -r $flashable_zip ./META-INF kernel.elf;
 
 # Move Kernel to shared folder
-cp NovaKernel-Hikari-Non-OC.zip /media/sf_Desktop;
+cp $flashable_zip $sharedfolder;
 
 # Remove leftovers in zip-format folder
 rm -f $kernel_dir/zip-format/kernel.elf;
-rm -f $kernel_dir/zip-format/NovaKernel-Hikari-Non-OC.zip;
+rm -f $kernel_dir/zip-format/$flashable_zip;
 
