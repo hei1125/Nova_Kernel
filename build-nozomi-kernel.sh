@@ -6,7 +6,7 @@
 
 # Variables
 working_dir=/home/hei/android;
-kernel_dir=/home/hei/android/nova;
+kernel_dir=/home/hei/android/NOVA-Kernel;
 toolchain=/home/hei/android/toolchains/arm-eabi-4.4.3/bin/arm-eabi-;
 
 # Enable ccache
