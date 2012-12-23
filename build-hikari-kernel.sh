@@ -26,7 +26,7 @@ make ARCH=arm CROSS_COMPILE=$toolchain oldconfig;
 
 # Compile Kernel
 # 2> warn.log means exporting the warning to a file called warn.log
-make ARCH=arm CROSS_COMPILE=$toolchain -j`grep 'processor' /proc/cpuinfo | wc -l` 2> warn.log;
+make ARCH=arm CROSS_COMPILE=$toolchain -j8 2> warn.log;
 
 # Change Kernel to elf format
 cp arch/arm/boot/zImage kernel-build/hikari;
