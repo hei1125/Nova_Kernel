@@ -1,12 +1,8 @@
 #!/bin/bash
 
 # CM10 Kernel Cleaner
-# Date: 5/12/2012
+# Date: 22/12/2012
 # By Hei1125
 
-# Variables
-kernel_dir=/home/hei/android/nova;
-
-# Go to Kernel Folder
-cd $kernel_dir;
+# Clean the kernel repo
 make clean;
