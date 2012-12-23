@@ -12,7 +12,7 @@ toolchain=/home/hei/android/toolchains/arm-eabi-4.4.3/bin/arm-eabi-;
 # Path of Shared folder of the virtual box
 sharedfolder=/media/sf_Desktop;
 # Name of flashable zip
-flashable_zip=NovaKernel-Nozomi.zip;
+flashable_zip=NovaKernel-Nozomi-exp.zip;
 
 # Enable ccache
 export USE_CCACHE=1;
