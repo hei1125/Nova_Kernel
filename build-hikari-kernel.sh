@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # CM10 Hikari (Sony Xperia Acro S) Kernel Compiler
-# Date: 22/12/2012
+# Date: 25/12/2012
 # By Hei1125
 
 ##### Variables #####
@@ -11,8 +11,10 @@ kernel_dir=/home/hei/android/NOVA-Kernel;
 toolchain=/home/hei/android/toolchains/arm-eabi-4.4.3/bin/arm-eabi-;
 # Path of Shared folder of the virtual box
 sharedfolder=/media/sf_Desktop;
+# Date
+date=$(date +%Y%m%d);
 # Name of flashable zip
-flashable_zip=NovaKernel-Hikari-exp.zip;
+flashable_zip=NovaKernel-Hikari-exp-$date.zip;
 
 # Enable ccache
 export USE_CCACHE=1;
