@@ -6,7 +6,7 @@
 
 ##### Modify the parameters here #####
 # Path of your toolchain
-TOOLCHAIN=/home/hei/android/toolchains/arm-eabi-4.4.3/bin/arm-eabi-;
+TOOLCHAIN=/home/hei1125/toolchains/arm-eabi-4.4.3/bin/arm-eabi-;
 # Path of Shared folder of the virtual box
 SHARED=/media/sf_Desktop;
 # Number of Threads
