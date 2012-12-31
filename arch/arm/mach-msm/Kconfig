@@ -1419,6 +1419,10 @@ config MSM_MPDEC
 	  This enables kernel based multi core control.
 	  (up/down hotplug based on load)
 
+config GPU_OVERCLOCK
+	bool "Enable GPU Overclocking option"
+	default n
+
 config CPU_VOLTAGE_TABLE
 	bool "Enable CPU Voltage Table via sysfs for adjustements"
 	default n

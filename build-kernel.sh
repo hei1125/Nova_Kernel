@@ -35,11 +35,12 @@ txtrst=$(tput sgr0)             # Reset
 # Parameters
 DATE=$(date +%Y%m%d);
 
+echo "${bldred}########### CM10 Fuji Kernel Compiler ##########${txtrst}";
+
 # Select the device to build
 CHOICE="0";
 while [ "$CHOICE" != "1" -o "$CHOICE" != "2" ]
 do	
-	echo "${bldred}CM10 Fuji Kernel Compiler${txtrst}";
 	echo -e "";
 	echo "${bldyel}Please select your device: ${txtrst}";
 	echo "${txtbld}	1: Hikari${txtrst}";
