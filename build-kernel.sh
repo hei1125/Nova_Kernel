@@ -154,4 +154,3 @@ rm -f $DIR/zip-format/$ZIP;
 res2=$(date +%s.%N);
 echo -e "";
 echo "${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res2 - $res1) / 60"|bc ) minutes ($(echo "$res2 - $res1"|bc ) seconds) ${txtrst}";
-sleep 3;
