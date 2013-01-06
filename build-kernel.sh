@@ -57,29 +57,6 @@ do
 	fi	
 done
 
-# Choose branch to compile with
-CHOICE="0";
-while [ "$CHOICE" != "1" -o "$CHOICE" != "2" ]
-do	
-	echo -e "";
-	echo "${bldyel}Which branch do you want to built?${txtrst}";
-	echo "${txtbld}	1: Stable${txtrst}";
-	echo "${txtbld}	2: Experimental${txtrst}";
-	read -p "Please input your choice (number): " CHOICE;
-	if [ "$CHOICE" == "1" ]; then
-		BRANCH="master";
-		read -p "${bldgrn}Enter the version number: v${txtrst}" VERSION;
-		ZIP=NovaKernel-$DEVICE-$VERSION.zip;
-		break;
-	elif [ "$CHOICE" == "2" ]; then
-		BRANCH="exp";
-		ZIP=NovaKernel-$DEVICE-exp-$DATE.zip;
-		break;
-	else
-		continue;
-	fi	
-done
-
 # Choose whether make a clean build
 CHOICE="0";
 while [ "$CHOICE" != "1" -o "$CHOICE" != "2" ]
@@ -99,9 +76,6 @@ do
 		continue;
 	fi	
 done;
-
-# Switch Branch
-git checkout $BRANCH;
 
 # Clean Intermediates and Outputs
 if [ "$CLEAN" == "clean" ]; then
