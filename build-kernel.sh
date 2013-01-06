@@ -8,7 +8,7 @@
 # Path of your toolchain
 TOOLCHAIN=/home/hei1125/toolchains/arm-eabi-4.4.3/bin/arm-eabi-;
 # Path of Shared folder of the virtual box
-SHARED=/media/sf_Desktop;
+SHARED=/media/sf_Shared;
 # Number of Threads
 THREADS="8";
 # Enable CCACHE
