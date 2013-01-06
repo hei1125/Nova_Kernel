@@ -77,6 +77,9 @@ do
 	fi	
 done;
 
+read -p "${bldgrn}Enter the kernel version number: v${txtrst}" VERSION;
+ZIP=NovaKernel-$DEVICE-$VERSION.zip;
+
 # Clean Intermediates and Outputs
 if [ "$CLEAN" == "clean" ]; then
 	echo -e ""
