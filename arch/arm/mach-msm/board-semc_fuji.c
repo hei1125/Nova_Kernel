@@ -111,6 +111,7 @@
 #include <mach/restart.h>
 #include <mach/board-msm8660.h>
 #include <mach/iommu_domains.h>
+#include <linux/msm_tsens.h>
 
 #include <mach/simple_remote_msm8x60_pf.h>
 
@@ -3624,10 +3625,19 @@ static struct platform_device *early_devices[] __initdata = {
 	&msm_device_dmov_adm1,
 };
 
+static struct tsens_platform_data hol_tsens_pdata  = {
+	.tsens_factor    = 1000,
+	.hw_type    = MSM_8660,
+	.tsens_num_sensor  = 5,
+	.slope       = {702},
+};
+
+/*
 static struct platform_device msm_tsens_device = {
 	.name   = "tsens-tm",
 	.id = -1,
 };
+*/
 
 #ifdef CONFIG_SENSORS_MSM_ADC
 
@@ -4138,7 +4148,7 @@ static struct platform_device *fuji_devices[] __initdata = {
 #ifdef CONFIG_SEMC_CHARGER_CRADLE_ARCH
 	&semc_chg_cradle,
 #endif
-	&msm_tsens_device,
+	/*&msm_tsens_device,*/
 	&msm_rpm_device,
 #ifdef CONFIG_FUJI_GPIO_KEYPAD
 	&gpio_key_device,
@@ -7775,6 +7785,7 @@ static void __init msm8x60_init(struct msm_board_data *board_data)
 {
 	uint32_t soc_platform_version;
 
+	msm_tsens_early_init(&hol_tsens_pdata);
 	pmic_reset_irq = PM8058_IRQ_BASE + PM8058_RESOUT_IRQ;
 	/*
 	 * Initialize RPM first as other drivers and devices may need
