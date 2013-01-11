@@ -6,7 +6,7 @@
 
 ##### Modify the parameters here #####
 # Path of your toolchain
-TOOLCHAIN=/home/hei1125/toolchains/arm-eabi-4.4.3/bin/arm-eabi-;
+TOOLCHAIN=/home/hei/toolchains/arm-eabi-4.4.3/bin/arm-eabi-;
 # Enable CCACHE
 export USE_CCACHE=1;
 ######################################
