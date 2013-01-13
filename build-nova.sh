@@ -84,10 +84,6 @@ if [ "$CLEAN" == "clean" ]; then
 	make clean;
 fi
 
-# Remove leftovers in zip-format folder
-rm -f $DIR/zip-format/kernel.elf;
-rm -f $DIR/zip-format/$ZIP;
-
 # Get Startup Time
 res1=$(date +%s.%N);
 
@@ -125,6 +121,10 @@ zip -r $ZIP ./META-INF kernel.elf;
 echo -e "";
 echo -e "${bldblu} Uploading the zip to Goo.im server ${txtrst}";
 rsync -v -e ssh /home/hei1125/nova/zip-format/$ZIP goo.im:~/public_html/$DEVICE/Nova_Kernel;
+
+# Remove leftovers in zip-format folder
+rm -f $DIR/zip-format/kernel.elf;
+rm -f $DIR/zip-format/$ZIP;
 
 # Finished & Get Elapsed Time
 res2=$(date +%s.%N);
