@@ -120,7 +120,7 @@ zip -r $ZIP ./META-INF kernel.elf;
 # Upload Kernel to Goo.im
 echo -e "";
 echo -e "${bldblu} Uploading the zip to Goo.im server ${txtrst}";
-rsync -v -e ssh /home/hei1125/nova/zip-format/$ZIP goo.im:~/public_html/$DEVICE/Nova_Kernel;
+rsync -v -e ssh $ZIP goo.im:~/public_html/$DEVICE/Nova_Kernel;
 
 # Remove leftovers in zip-format folder
 rm -f $DIR/zip-format/kernel.elf;
