@@ -33,56 +33,22 @@ DATE=$(date +%Y%m%d);
 
 echo "${bldgrn}#############################  CM10 Kernel Compiler #######################${txtrst}";
 
+VERSION="$1";
 # Select the device to build
-CHOICE="0";
-while [ "$CHOICE" != "1" -o "$CHOICE" != "2" ]
-do	
-	echo -e "";
-	echo "${bldyel} Please select your device: ${txtrst}";
-	echo "${txtbld}	1: Hikari${txtrst}";
-	echo "${txtbld}	2: Nozomi${txtrst}";
-	read -p "Please input your choice (number): " CHOICE;
-	if [ "$CHOICE" == "1" ]; then
-		DEVICE="hikari";
-		break;
-	elif [ "$CHOICE" == "2" ]; then
-		DEVICE="nozomi";
-		break;
-	else
-		continue;
-	fi	
-done
+if [ "$2" == "nozomi" ]; then
+	DEVICE="nozomi";
+else
+	DEVICE="hikari";
+fi
 
 # Choose whether make a clean build
-CHOICE="0";
-while [ "$CHOICE" != "1" -o "$CHOICE" != "2" ]
-do	
-	echo -e "";
-	echo "${bldyel} Clean intermediates and output files?${txtrst}";
-	echo "${txtbld}	1: Yes${txtrst}";
-	echo "${txtbld}	2: No${txtrst}";
-	read -p "Please input your choice (number): " CHOICE;
-	if [ "$CHOICE" == "1" ]; then
-		CLEAN="clean";
-		break;
-	elif [ "$CHOICE" == "2" ]; then
-		CLEAN="";
-		break;
-	else
-		continue;
-	fi	
-done;
-
-echo -e "";
-read -p "${bldgrn} Enter the kernel version number: v${txtrst}" VERSION;
-ZIP=NovaKernel-$DEVICE-$VERSION.zip;
-
-# Clean Intermediates and Outputs
-if [ "$CLEAN" == "clean" ]; then
+if [ "$3" == "clean" ]; then
 	echo -e ""
 	echo -e "${bldblu} Cleaning intermediates and output files ${txtrst}"
 	make clean;
 fi
+
+ZIP=NovaKernel-$DEVICE-$VERSION.zip;
 
 # Get Startup Time
 res1=$(date +%s.%N);
